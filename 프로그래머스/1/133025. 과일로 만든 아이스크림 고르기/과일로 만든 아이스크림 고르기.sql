@@ -1,0 +1,4 @@
+SELECT i.FLAVOR
+FROM  ICECREAM_INFO i left join FIRST_HALF h on i.FLAVOR = h.FLAVOR
+where h.TOTAL_ORDER >= 3000
+and i.INGREDIENT_TYPE = 'fruit_based'
