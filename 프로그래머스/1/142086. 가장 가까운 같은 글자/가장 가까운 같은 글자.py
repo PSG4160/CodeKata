@@ -13,7 +13,7 @@ def solution(s):
             distance = i - last_index       # 거리 계산
             answer.append(distance)
     return answer
-'''
+
 # 2 rfind()함수를 사용하지 않고 구하기
 
 def solution(s):
@@ -28,4 +28,17 @@ def solution(s):
                 break  # 가장 가까운 위치를 찾았으므로 반복 종료
         if not found:
             answer.append(-1)  # 이전에 같은 문자가 없으면 -1 추가
+    return answer
+'''
+# 3 딕셔너리 사용하기
+def solution(s):
+    answer = []
+    dic = dict()
+    for i in range(len(s)):
+        if s[i] not in dic:
+            answer.append(-1)
+        else:
+            answer.append(i - dic[s[i]])
+        dic[s[i]] = i
+
     return answer
