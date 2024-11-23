@@ -1,0 +1,11 @@
+SELECT CART_ID
+FROM CART_PRODUCTS
+WHERE CART_ID IN (
+    SELECT CART_ID
+    FROM CART_PRODUCTS
+    WHERE NAME IN ('Milk', 'Yogurt')
+    GROUP BY CART_ID
+    HAVING COUNT(DISTINCT NAME) >= 2
+)
+group by cart_id
+order by cart_id
